@@ -14,6 +14,7 @@
 </ul>
 
 
+
 Este projeto foi desenvolvido usando as seguintes tecnologias:
 > Expo - para o desenvolvimento de uma aplicação React Native
 > Clerk - para o sistema de login/logout e signup usando uma publishableKey
