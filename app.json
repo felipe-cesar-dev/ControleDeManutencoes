@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "ControleDeManutencoes",
-    "slug": "ControleDeManutencoes",
+    "name": "Controle de Manutencoes",
+    "slug": "Controle de Manutencoes",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
