@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Controle de Manutencoes",
-    "slug": "Controle de Manutencoes",
+    "slug": "ControledeManutencoes",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -43,7 +43,7 @@
         "origin": false
       },
       "eas": {
-        "projectId": "7d4f09c3-a7c1-461b-afbe-58dbcf3388df"
+        "projectId": "d30f478a-a9c5-4aef-8dab-aa3618fc9e07"
       }
     }
   }
