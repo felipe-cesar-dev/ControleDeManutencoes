@@ -12,7 +12,7 @@
 <li>Nessa tela, há também, um campo informando o somatório das manutenções contidas na lista.</li>
 <li>Um botão para encerrar a sessão está contido na parte superior direita de cada tela, uma vez logado.</li>
 </ul>
----------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 Este projeto foi desenvolvido usando as seguintes tecnologias:
 > Expo - para o desenvolvimento de uma aplicação React Native
