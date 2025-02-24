@@ -1,3 +1,5 @@
+<h1>Sobre o aplicativo Controle de Manutenções</h1>
+
 O projeto desenvolvido tem como objetivo ajudar no monitoramento de gastos com manutenções de veículos.
 O público alvo é o de pessoas que possuem algum tipo de veículo e precisam de algum meio para armazenar seus gastos com manutenções de forma fácil e acessível (na palma da mão).
 Aqui, o usuário poderá se cadastrar com seu e-mail e senha de forma prática e rápida, tendo a validação do cadastro autenticada direto no provedor do e-mail utilizado.
