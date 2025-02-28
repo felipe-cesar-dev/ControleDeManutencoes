@@ -9,7 +9,7 @@ export default function Index() {
         alignItems: "center",
       }}
     >
-      <ActivityIndicator size={40} color={"#121212"}/>
+      <ActivityIndicator size={40} color={"green"}/>
     </View>
   );
 }
