@@ -86,10 +86,16 @@ export default function Register(){
         )}
 
 
-        {pendingEmailCode && (
+{pendingEmailCode && (
           <View>
             <Text>Digite o código:</Text>
-            <TextInput/>
+            <TextInput
+              autoCapitalize="none"
+              placeholder="Digite seu código..."
+              style={styles.input}
+              value={code}
+              onChangeText={setCode}
+            />
             <Button
               title="Ativar conta"
               color="#121212"
