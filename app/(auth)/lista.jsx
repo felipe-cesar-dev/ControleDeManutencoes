@@ -4,11 +4,13 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useFocusEffect } from '@react-navigation/native';
 import { LogoutButton } from '@/components/log-out';
 import { styles } from '../styles/styles';
+import { useUser } from '@clerk/clerk-expo'
 
 const Lista = () => {
   const [itensArmazenados, setItensArmazenados] = useState([]);
   const [itemExcluir, setItemExcluir] = useState('');
   const [valorTotal, setValorTotal] = useState(0);
+  const { user } = useUser()
   const usuario = String(user?.emailAddresses[0].emailAddress)
 
   useFocusEffect(
