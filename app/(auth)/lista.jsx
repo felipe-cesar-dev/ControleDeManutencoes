@@ -20,8 +20,9 @@ const Lista = () => {
           const chaves = await AsyncStorage.getAllKeys();
           const itens = await AsyncStorage.multiGet(chaves);
           const itensArmazenados = itens.map((item) => JSON.parse(item[1]));
-          setItensArmazenados(itensArmazenados);
-          const valorTotal = itensArmazenados.reduce((acumulado, item) => {
+          const itensFiltrados = itensArmazenados.filter((item) => item.usuario === usuario);
+          setItensArmazenados(itensFiltrados);
+          const valorTotal = itensFiltrados.reduce((acumulado, item) => {
             return acumulado + parseFloat(item.valor.replace('R$', ''));
           }, 0);
           setValorTotal(valorTotal.toFixed(2));
@@ -29,8 +30,9 @@ const Lista = () => {
           alert(error);
         }
       };
+  
       recuperarItens();
-    }, [])
+    }, [usuario])
   );
 
   const excluirItem = async () => {
@@ -56,17 +58,6 @@ const Lista = () => {
     }
   };
 
-  const excluirTodosItens = async () => {
-    try {
-      await AsyncStorage.clear();
-      setItensArmazenados([]);
-      setValorTotal(0);
-      alert('Todas as manutenções foram excluídas!');
-    } catch (error) {
-      alert(error);
-    }
-  };
-
   return (
     <ImageBackground source={require('../../images/backgroundHome.jpg')} style={{flex: 1}} >
       <LogoutButton/>
@@ -81,7 +72,6 @@ const Lista = () => {
             <Text style = {styles.textLista}>Data: {item.data} {'\n'}</Text>
           </View>
         )} keyExtractor={(item, index) => index.toString()} />
-        <Button color='black' title="Excluir todos os itens da lista" onPress={excluirTodosItens} />
         <View style = {styles.viewLista3}>
           <Text style = {styles.textViewLista3}>Valor agregado das manutenções: R$ {valorTotal}</Text>
         </View>
