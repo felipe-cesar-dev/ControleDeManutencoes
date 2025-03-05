@@ -66,7 +66,6 @@ const Lista = () => {
         <Button color='black' title="Excluir item" onPress={excluirItem} />
         <FlatList data={itensArmazenados} renderItem={({ item }) => (
           <View style = {styles.viewLista2}>
-            <Text style = {styles.textLista}>Usuário: {item.usuario}</Text>
             <Text style = {styles.textLista}>Manutenção: {item.texto}</Text>
             <Text style = {styles.textLista}>Valor: R$ {item.valor}</Text>
             <Text style = {styles.textLista}>Data: {item.data} {'\n'}</Text>
