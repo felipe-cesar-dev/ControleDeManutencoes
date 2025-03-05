@@ -11,6 +11,7 @@ const Inicio = () => {
   const [valor, setValor] = useState('');
   const [data, setData] = useState('');
   const { user } = useUser()
+  const usuario = String(user?.emailAddresses[0].emailAddress)
 
   const armazenarDados = async () => {
     try {
@@ -20,7 +21,7 @@ const Inicio = () => {
         return;
       }
       const chave = `dados-${Date.now()}`;
-      const dados = { texto, valor, data };
+      const dados = { texto, valor, data, usuario };
       verificarLength(chave, dados, texto, valor, data, setValor, setData, setTexto)
     } catch (error) {
       alert('Houve um erro ao tentar guardar sua manutenção. Tente outra vez!');
@@ -30,7 +31,7 @@ const Inicio = () => {
   return (
     <ImageBackground source={require('../../images/backgroundHome.jpg')} style={{flex: 1}} >
       <LogoutButton/>
-      <Text style = {{fontSize: 20, padding: 10, textAlign: 'center'}}>Usuário: {user?.emailAddresses[0].emailAddress}</Text>
+      <Text style = {{fontSize: 20, padding: 10, textAlign: 'center'}}>Usuário: {usuario}</Text>
       <View style = {styles.view3} >
         <View >
           <Text style = {styles.texto2} >Digite a manutenção:</Text>
