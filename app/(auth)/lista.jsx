@@ -40,7 +40,7 @@ const Lista = () => {
       const chaves = await AsyncStorage.getAllKeys();
       const itens = await AsyncStorage.multiGet(chaves);
       const itensArmazenados = itens.map((item) => JSON.parse(item[1]));
-      const itemExcluirIndex = itensArmazenados.findIndex((item) => item.texto === itemExcluir);
+      const itemExcluirIndex = itensArmazenados.findIndex((item) => item.texto === itemExcluir && item.usuario === usuario);
       if (itemExcluirIndex !== -1) {
         const chaveExcluir = chaves[itemExcluirIndex];
         await AsyncStorage.removeItem(chaveExcluir);
@@ -51,7 +51,7 @@ const Lista = () => {
         }, 0);
         setValorTotal(valorTotal.toFixed(2));
       } else {
-        alert('Digite uma manutenção válida!');
+        alert('Você não tem permissão para excluir esse item!');
       }
     } catch (error) {
       alert(error);
