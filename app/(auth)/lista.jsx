@@ -37,21 +37,17 @@ const Lista = () => {
 
   const excluirItem = async () => {
     try {
-      const chaves = await AsyncStorage.getAllKeys();
-      const itens = await AsyncStorage.multiGet(chaves);
-      const itensArmazenados = itens.map((item) => JSON.parse(item[1]));
-      const itemExcluirIndex = itensArmazenados.findIndex((item) => item.texto === itemExcluir && item.usuario === usuario);
-      if (itemExcluirIndex !== -1) {
-        const chaveExcluir = chaves[itemExcluirIndex];
-        await AsyncStorage.removeItem(chaveExcluir);
-        setItensArmazenados(itensArmazenados.filter((item) => item.texto !== itemExcluir));
+      const itensFiltrados = itensArmazenados.filter((item) => item.texto !== itemExcluir && item.usuario === usuario);
+      if (itensFiltrados.length === itensArmazenados.length) {
+        alert('Você não tem permissão para excluir esse item!');
+      } else {
+        setItensArmazenados(itensFiltrados);
         setItemExcluir('');
-        const valorTotal = itensArmazenados.reduce((acumulado, item) => {
+        const valorTotal = itensFiltrados.reduce((acumulado, item) => {
           return acumulado + parseFloat(item.valor.replace('R$', ''));
         }, 0);
         setValorTotal(valorTotal.toFixed(2));
-      } else {
-        alert('Você não tem permissão para excluir esse item!');
+        await AsyncStorage.removeItem(`@${usuario}:${itemExcluir}`);
       }
     } catch (error) {
       alert(error);
