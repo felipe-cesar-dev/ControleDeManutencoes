@@ -25,7 +25,7 @@ export default function Register(){
       setPendingEmailCode(true);
 
     }catch(e){
-      console.log(e);
+      alert('Erro ao se cadastrar: verifique e-mail e senha.');
     }
 
   }
@@ -43,7 +43,7 @@ export default function Register(){
         await setActive({ session: completeSignup.createdSessionId })
 
       }catch(e){
-        console.log(e);
+        alert('Erro na ativação da conta: Digite o código de verificação');
       }
   }
 
@@ -88,11 +88,11 @@ export default function Register(){
 
 {pendingEmailCode && (
           <View>
-            <Text>Digite o código:</Text>
-            <TextInput
+            <Text style={styles.texto2}>Digite o código enviado ao seu e-mail:</Text>
+            <TextInput 
               autoCapitalize="none"
-              placeholder="Digite seu código..."
-              style={styles.input}
+              placeholder="Digite o código aqui..."
+              style={styles.textInput}
               value={code}
               onChangeText={setCode}
             />
