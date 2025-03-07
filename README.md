@@ -122,5 +122,10 @@
 <h3>/IMAGES
 <h5> - Consta imagens utilizadas como background para as screens da aplicação.
 
+<img src="https://raw.githubusercontent.com/felipe-cesar-dev/imagens/refs/heads/main/Controle%20de%20Manuten%C3%A7%C3%B5es/5.jpeg" alt = "Preview Celular" height = "350px"/>
+<img src="https://raw.githubusercontent.com/felipe-cesar-dev/imagens/refs/heads/main/Controle%20de%20Manuten%C3%A7%C3%B5es/4.jpeg" alt = "Preview Celular" height = "350px"/>
+<img src="https://raw.githubusercontent.com/felipe-cesar-dev/imagens/refs/heads/main/Controle%20de%20Manuten%C3%A7%C3%B5es/3.jpeg" alt = "Preview Celular" height = "350px"/>
+<img src="https://raw.githubusercontent.com/felipe-cesar-dev/imagens/refs/heads/main/Controle%20de%20Manuten%C3%A7%C3%B5es/2.jpeg" alt = "Preview Celular" height = "350px"/>
+<img src="https://raw.githubusercontent.com/felipe-cesar-dev/imagens/refs/heads/main/Controle%20de%20Manuten%C3%A7%C3%B5es/1.jpeg" alt = "Preview Celular" height = "350px"/>
 
 
