@@ -55,6 +55,7 @@
 
 <li><h3>eas build -p android --profile preview</h3>
 <h5> - Esta linha foi utilizada para buildar o .apk da aplicação.</h5>
+</ul>
 
 <h1>Sobre a modularização do código:</h1>
 
