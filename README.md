@@ -123,7 +123,7 @@
 <h5> - Consta imagens utilizadas como background para as screens da aplicação.</h5>
 </h3>
 
-<div><h3>Imagens das telas da aplicação:</3>
+<div><h3>Imagens das telas da aplicação:</h3></br>
 <img src="https://raw.githubusercontent.com/felipe-cesar-dev/imagens/refs/heads/main/Controle%20de%20Manuten%C3%A7%C3%B5es/5.jpeg" alt = "Acessar Conta" height = "350px"/>
 <img src="https://raw.githubusercontent.com/felipe-cesar-dev/imagens/refs/heads/main/Controle%20de%20Manuten%C3%A7%C3%B5es/4.jpeg" alt = "Criar uma Conta" height = "350px"/>
 <img src="https://raw.githubusercontent.com/felipe-cesar-dev/imagens/refs/heads/main/Controle%20de%20Manuten%C3%A7%C3%B5es/3.jpeg" alt = "Código de ativação" height = "350px"/>
