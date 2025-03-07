@@ -5,6 +5,7 @@ import { useUser } from '@clerk/clerk-expo'
 import { LogoutButton } from '../../components/log-out';
 import { styles } from '../styles/styles';
 import moment from 'moment';
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const Inicio = () => {
   const [texto, setTexto] = useState('');
@@ -22,7 +23,14 @@ const Inicio = () => {
       }
       const chave = `dados-${Date.now()}`;
       const dados = { texto, valor, data, usuario };
-      verificarLength(chave, dados, texto, valor, data, setValor, setData, setTexto)
+      if (!verificarLength(texto, valor, data)){
+      } else {
+        await AsyncStorage.setItem(chave, JSON.stringify(dados));
+        alert('Manutenção guardada!')
+        setData('')
+        setTexto('')
+        setValor('')
+      }
     } catch (error) {
       alert('Houve um erro ao tentar guardar sua manutenção. Tente outra vez!');
     }
