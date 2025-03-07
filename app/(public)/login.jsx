@@ -23,7 +23,7 @@ export default function Login(){
       await setActive({ session: signinUser.createdSessionId })
 
     }catch(err){
-      console.log(JSON.stringify(err, null, 2));
+      alert('Verifique se o e-mail e senha são válidos ou estão cadastrados!');
     }
 
   }
