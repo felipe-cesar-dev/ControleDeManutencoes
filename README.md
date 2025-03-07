@@ -54,3 +54,15 @@
 
 <h3>eas build -p android --profile preview</h3>
 <h5> - Esta linha foi utilizada para buildar o .apk da aplicação</h5>
+
+<h1>Sobre a modularização do código:</h1>
+
+<h2>/APP</h2>
+
+<h3>/(AUTH)/_LAYOUT.JSX<h3>
+<h5> - Consta o código para o layout das páginas acessíveis ao user autenticado. Onde há o import do componente MyTabs, que possui o código contendo o Tab.Navigator, responsável pela navegação entre screens.</h5>
+
+<h3>/(AUTH)/HOME.JSX</h3>
+<h5> - Consta o código para captura e tratamento dos dados inseridos pelo usuário logado</h5>
+<h5> - A função assíncrona 'armazenarDados' é responsável pelo armazenamento dos dados digitados nos TextInputs presentes no retorno da função principal 'Inicio'. Ao capturar os dados setados através das variáveis 'setTexto', 'setValor' e 'setData', e também o conteúdo da variável 'const usuario', a função armazenarDados os concentra na variável 'const dados' e em seguida os armazena no AsyncStorage, através da linha 'await AsyncStorage.setItem(chave, JSON.stringify(dados));'. Mas antes, uma verificação é feita através da função 'verificaLength' e da variável 'const dataFormatada'. A função importada verifica se os TextInputs estão vazios, e a variável verifica se a data foi digitada seguindo o padrão DD/MM/AAAA. Alertas são exibidos aos usuários se as verificações não forem atendidas
+ - Caso haja erro na função armazenarDados, ele é informado no 'catch' através de um alert, ao usuário.</h5>
