@@ -1,14 +1,6 @@
 
 
-<style>
-  .background-claro {
-    background-color:rgb(188, 102, 102);
-    padding: 20px;
-    border: 1px solid #ddd;
-  }
-</style>
-
-<div class="background-claro">
+<div>
 
 <h1>Sobre o aplicativo "Controle de Manutenções"</h1>
 
