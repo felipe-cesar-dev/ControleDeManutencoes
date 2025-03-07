@@ -55,11 +55,10 @@
 
 <li><h3>eas build -p android --profile preview</h3>
 <h5> - Esta linha foi utilizada para buildar o .apk da aplicação.</h5>
-</ul>
 
 <h1>Sobre a modularização do código:</h1>
-<ul>
-<li><h3>/APP/_LAYOUT.TSX</h3>
+
+<h3>/APP/_LAYOUT.TSX</h3>
 <h5> - Consta o código para salvar e recuperar o token de acesso, além de verificar os redirecionamentos para screens baseados no status de atividade do usuário (se está autenticado ou não). </br>
  - A função 'getToken' retorna o token de acesso  através da linha 'return SecureStore.getItemAsync(key);'. </br>
  - A função 'saveToken' retorna a chave e o valor do token através da linha 'SecureStore.setItemAsync(key, value);</br>'
@@ -68,59 +67,60 @@
  - Caso não esteja logado (!isSignedIn), então sua rota é redirecionada para '/login'.</br>
  - A função 'RootLayout' retorna o Clerk.Provider com os parâmetros da 'publishableKey, apontando para a variável 'publishKey' que tem como valor o chave necessária para a sincornização com o Clerk, contida no arquivo '.env', e 'tokenCache', que possui as funções getToken e saveToken.
 
-<li><h3>/APP/INDEX.TSX</h3>
+<h3>/APP/INDEX.TSX</h3>
 <h5> - Consta o código para utilização do ActivityIndicator que carrega um 'loading' antes da aplicação ter suas rotas carregadas.
 
-<li><h3>/(AUTH)/_LAYOUT.JSX<h3>
+<h3>/(AUTH)/_LAYOUT.JSX<h3>
 <h5> - Consta o código para o layout das páginas acessíveis ao user autenticado. Onde há o import do componente MyTabs, que possui o código contendo o Tab.Navigator, responsável pela navegação entre screens.</h5>
 
-<li><h3>/(AUTH)/HOME.JSX</h3>
+<h3>/(AUTH)/HOME.JSX</h3>
 <h5>- Consta o código para captura e tratamento dos dados inseridos pelo usuário logado.</br>
  - A função assíncrona 'armazenarDados' é responsável pelo armazenamento dos dados digitados nos TextInputs presentes no retorno da função principal 'Inicio'. Ao capturar os dados setados através das variáveis 'setTexto', 'setValor' e 'setData', e também o conteúdo da variável 'const usuario', a função armazenarDados os concentra na variável 'const dados' e em seguida os armazena no AsyncStorage, através da linha 'await AsyncStorage.setItem(chave, JSON.stringify(dados));'. Mas antes, uma verificação é feita através da função 'verificaLength' e da variável 'const dataFormatada'. A função importada verifica se os TextInputs estão vazios, e a variável verifica se a data foi digitada seguindo o padrão DD/MM/AAAA. Alertas são exibidos aos usuários se as verificações não forem atendidas. </br>
  - Caso haja erro na função armazenarDados, ele é informado no 'catch' através de um alert, ao usuário.</h5>
 
-<li><h3>/(AUTH)/LISTA.JSX</h3>
+<h3>/(AUTH)/LISTA.JSX</h3>
 <h5> - Consta o código para exibição e exclusão de dados armazenados no HOME.JSX, além do valor agregado dos dados e um botão para excluir uma manutenção específica. </br>
 - A função assíncrona 'recuperarItens' é responsável por exibir os dados armazenados pelo AsyncStorage na varivável 'dados' do HOME.JSX.</br>
 - Os itens armazenados são exibidos baseados no resultado coletado através da const 'itensFiltrados', que busca dentro do armazenamento do AsyncStorage, itens vinculados ao usuário logado. Se o conteúdo da variavel 'item.usuario' for igual a const 'usuario' (que retorna uma string do email do usuário que está logado), então, os dados que foram guardados serão retornados numa 'FlatList', no retorno da função principal 'Lista'.<br>
 - A função assíncrona 'excluirItem' espera de um TextInput, no retorno da função principal, um nome de uma manutenção. Se a manutenção for encontrada no armazenamento do AsyncStorage, e essa manutenção tiver como item.usuario o mesmo valor contido na const 'usuario', então ela será excluída do armazenamento. Caso contrário, um alert ('Você não tem permissão para excluir esse item') será exibido ao usuário. Pois quem armazenou o item, foi outro usuário logado no dispositivo.</br>
 - A variável 'valorTotal' é atualizada toda vez que uma manutenção é adicionada ou excluída, atualizando assim, o somatório do valor contido na variavel item.valor, que faz referência ao valor da manutenção capturada no TextInput 'Valor', no HOME.JSX. </br>
 
-<li><h3>/(PUBLIC)/_LAYOUT.JSX<h3>
+<h3>/(PUBLIC)/_LAYOUT.JSX<h3>
 <h5> - Consta o código responsável pela navegação das páginas acessíves ao user não logado, como Login e Signup.</br>
  - A função 'PublicLayout' retorna o Stack para o sucesso dessa navegação entre screens.
 </h5>
 
-<li><h3>/(PUBLIC)/LOGIN.JSX<h3>
+<h3>/(PUBLIC)/LOGIN.JSX<h3>
 <h5> - Consta o código responsável pela realização do login de um email e senha cadastrados. </br>
 - A função 'handleSignIn' é responsável por validar os TextInput referentes aos campos de e-mail e senha. Ela chama uma função importada 'verificarLengthLogin', que verifica se os campos possuem email e senhas digitados. Se não houver, um alerta é exibido informando que os campos precisam estar preenchidos. </br>
  - Após a verificação, se o usuário já estiver cadastrado no Clerk, então ele será direcionado para a screen 'Inicio', dentro de (AUTH/HOME.JSX). Caso contrário, um erro informando que o usuário não está cadastrado, será exibido. </br>
  - No retorno da função principal 'Login', existe um 'Link' para navegar para a screen 'Register', onde o usuário poderá efetuar o seu cadastro no Clerk.</h5>
 
-<li><h3>/(PUBLIC)/REGISTER.JSX<h3>
+<h3>/(PUBLIC)/REGISTER.JSX<h3>
 <h5> - Consta o código responsável pelo cadastratamento e ativação de um email e senha. </br>
  - A função 'handleSignUp' aguarda a digitação de um email e senha nos TextInput presentes no retorno da função principal 'Register'. Em seguida a inserção dos dados requisitados, há o redirecionamento para a screen de ativação da conta, através do verificação do código enviado para o email digitado. O tratamento do código de verificação é feito pela função 'handleVerifyUser', que aguarda a correta digitação do código para efetivar o cadastramento do usuário. Ambas funções tem erros capturados e explicitados ao usuário através de um alert.
 
 
-<li><h3>/APP/FUNCTIONS/VERIFICARLENGTH.JSX
+<h3>/APP/FUNCTIONS/VERIFICARLENGTH.JSX
 <h5> - Consta o código para a função que verifica se os TextInput dentro de HOME.JSX possuem algum texto digitado.
 
-<li><h3>/APP/FUNCTIONS/VERIFICARLENGTHLOGIN.JSX
+<h3>/APP/FUNCTIONS/VERIFICARLENGTHLOGIN.JSX
 <h5> - Consta o código para a função que verifica se os TextInput dentro de LOGIN.JSX possuem algum texto digitado.
 
-<li><h3>/APP/STYLES/STYLES.JSX
+<h3>/APP/STYLES/STYLES.JSX
 <h5> - Consta o código de estilização das screen da aplicação.
 
-<li><h3>/ASSETS/FONTS e /ASSETS/IMAGES
+<h3>/ASSETS/FONTS e /ASSETS/IMAGES
 <h5> - Consta fontes e imagens utilizadas no carregamento da aplicação, como 'icon.png', 'favicon.png', etc...
 
-<li><h3>/COMPONENTS/LOG-OUT.JSX
+<h3>/COMPONENTS/LOG-OUT.JSX
 <h5> - Consta o código da função 'Logout' que retorna um 'Pressable' que 'desloga' o user, fazendo com que a variável 'isSignedIn' retorne 'false'.
 
-<li><h3>/COMPONENTS/TAB.JS
+<h3>/COMPONENTS/TAB.JS
 <h5> - Consta o código da função 'MyTabs', importada no (AUTH)/_LAYOUT.JSX, onde o componente 'Tab.Navigator' contém a personalização das duas 'Tab.Screens': 'Inserir Manutenções' ((AUTH)/HOME.JSX) e 'Lista de Manutenções' ((AUTH)/LISTA.JSX).
 
-<li><h3>/IMAGES
+<h3>/IMAGES
 <h5> - Consta imagens utilizadas como background para as screens da aplicação.
-</ul>
+
+
 
