@@ -1,6 +1,14 @@
 
 
-<div style="background-color:rgb(220, 90, 90); padding: 20px; border: 1px solid #ddd;">
+<style>
+  .background-claro {
+    background-color:rgb(188, 102, 102);
+    padding: 20px;
+    border: 1px solid #ddd;
+  }
+</style>
+
+<div class="background-claro">
 
 <h1>Sobre o aplicativo "Controle de Manutenções"</h1>
 
