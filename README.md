@@ -1,8 +1,6 @@
-body {
-  background-color: #f2f2f2;
-}
 
-<div>
+
+<div style="background-color: #f2f2f2; padding: 20px; border: 1px solid #ddd;">
 
 <h1>Sobre o aplicativo "Controle de Manutenções"</h1>
 
