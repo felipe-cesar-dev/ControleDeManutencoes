@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { ClerkProvider, useAuth, useUser } from '@clerk/clerk-expo'
+import { ClerkProvider, useAuth } from '@clerk/clerk-expo'
 import { Slot, useRouter, useSegments } from "expo-router";
 import * as SecureStore from 'expo-secure-store';
 
@@ -23,11 +23,9 @@ const tokenCache = {
 };
 
 const InitialLayout = () => {
-  const { user } = useUser()
   const { isLoaded, isSignedIn } = useAuth()
   const segments = useSegments();
   const router = useRouter();
-  const usuario = user?.emailAddresses[0].emailAddress
 
   useEffect(() => {
     if(!isLoaded) return;

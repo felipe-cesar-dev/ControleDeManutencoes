@@ -57,7 +57,17 @@
 
 <h1>Sobre a modularização do código:</h1>
 
-<h2>/APP</h2>
+<h3>/APP/_LAYOUT.TSX</h3>
+<h5> - Consta o código para salvar e recuperar o token de acesso, além de verificar os redirecionamentos para screens baseados no status de atividade do usuário (se está autenticado ou não). </br>
+ - A função 'getToken' retorna o token de acesso  através da linha 'return SecureStore.getItemAsync(key);'. </br>
+ - A função 'saveToken' retorna a chave e o valor do token através da linha 'SecureStore.setItemAsync(key, value);</br>'
+ - A função principal 'InitialLayout' é responsável pela verificação do status do user e o seu redireciomento condicional. A variável 'isSignedIn' serve para retornar 'true' caso o user esteja logado, e 'false' caso contrário. 'inAuthGroup' armanzena o segmento 0 da estrutura de diretórios da aplicação, definido como '(auth)'. 'isLoaded' é usado para evitar que o componente tente redirecionar o usuário para a página de login ou home antes que o estado de autenticação seja carregado completamente.</br>
+ - Se o usuário estiver logado (isSignedIn) e não estiver no 'Inicio' do (AUTH)/HOME.JSX, então sua rota é redirecionada para '/home'.</br>
+ - Caso não esteja logado (!isSignedIn), então sua rota é redirecionada para '/login'.</br>
+ - A função 'RootLayout' retorna o Clerk.Provider com os parâmetros da 'publishableKey, apontando para a variável 'publishKey' que tem como valor o chave necessária para a sincornização com o Clerk, contida no arquivo '.env', e 'tokenCache', que possui as funções getToken e saveToken.
+
+<h3>/APP/INDEX.TSX</h3>
+<h5> - Consta o código para utilização do ActivityIndicator que carrega um 'loading' antes da aplicação ter suas rotas carregadas.
 
 <h3>/(AUTH)/_LAYOUT.JSX<h3>
 <h5> - Consta o código para o layout das páginas acessíveis ao user autenticado. Onde há o import do componente MyTabs, que possui o código contendo o Tab.Navigator, responsável pela navegação entre screens.</h5>
@@ -81,11 +91,35 @@
 
 <h3>/(PUBLIC)/LOGIN.JSX<h3>
 <h5> - Consta o código responsável pela realização do login de um email e senha cadastrados. </br>
-<h5> - A função 'handleSignIn' é responsável por validar os TextInput referentes aos campos de e-mail e senha. Ela chama uma função importada 'verificarLengthLogin', que verifica se os campos possuem email e senhas digitados. Se não houver, um alerta é exibido informando que os campos precisam estar preenchidos. </br>
+- A função 'handleSignIn' é responsável por validar os TextInput referentes aos campos de e-mail e senha. Ela chama uma função importada 'verificarLengthLogin', que verifica se os campos possuem email e senhas digitados. Se não houver, um alerta é exibido informando que os campos precisam estar preenchidos. </br>
  - Após a verificação, se o usuário já estiver cadastrado no Clerk, então ele será direcionado para a screen 'Inicio', dentro de (AUTH/HOME.JSX). Caso contrário, um erro informando que o usuário não está cadastrado, será exibido. </br>
  - No retorno da função principal 'Login', existe um 'Link' para navegar para a screen 'Register', onde o usuário poderá efetuar o seu cadastro no Clerk.</h5>
 
 <h3>/(PUBLIC)/REGISTER.JSX<h3>
 <h5> - Consta o código responsável pelo cadastratamento e ativação de um email e senha. </br>
- - A função 'handleSignUp' aguarda a digitação de um email e senha nos TextInput presentes no retorno da função principal 'Register'. Em seguida a inserção dos dados requisitados, há o redirecionamento para a screen de ativação da conta, através do verificação do código enviado para o email digitado. O tratamento do código de verificação é feito pela função 'handleVerifyUser', que aguarda a correta digitação do código para efetivar o cadastramento do usuário. Amabs funções tem erros capturados e explicitados ao usuário através de um alert.
+ - A função 'handleSignUp' aguarda a digitação de um email e senha nos TextInput presentes no retorno da função principal 'Register'. Em seguida a inserção dos dados requisitados, há o redirecionamento para a screen de ativação da conta, através do verificação do código enviado para o email digitado. O tratamento do código de verificação é feito pela função 'handleVerifyUser', que aguarda a correta digitação do código para efetivar o cadastramento do usuário. Ambas funções tem erros capturados e explicitados ao usuário através de um alert.
+
+
+<h3>/APP/FUNCTIONS/VERIFICARLENGTH.JSX
+<h5> - Consta o código para a função que verifica se os TextInput dentro de HOME.JSX possuem algum texto digitado.
+
+<h3>/APP/FUNCTIONS/VERIFICARLENGTHLOGIN.JSX
+<h5> - Consta o código para a função que verifica se os TextInput dentro de LOGIN.JSX possuem algum texto digitado.
+
+<h3>/APP/STYLES/STYLES.JSX
+<h5> - Consta o código de estilização das screen da aplicação.
+
+<h3>/ASSETS/FONTS e /ASSETS/IMAGES
+<h5> - Consta fontes e imagens utilizadas no carregamento da aplicação, como 'icon.png', 'favicon.png', etc...
+
+<h3>/COMPONENTS/LOG-OUT.JSX
+<h5> - Consta o código da função 'Logout' que retorna um 'Pressable' que 'desloga' o user, fazendo com que a variável 'isSignedIn' retorne 'false'.
+
+<h3>/COMPONENTS/TAB.JS
+<h5> - Consta o código da função 'MyTabs', importada no (AUTH)/_LAYOUT.JSX, onde o componente 'Tab.Navigator' contém a personalização das duas 'Tab.Screens': 'Inserir Manutenções' ((AUTH)/HOME.JSX) e 'Lista de Manutenções' ((AUTH)/LISTA.JSX).
+
+<h3>/IMAGES
+<h5> - Consta imagens utilizadas como background para as screens da aplicação.
+
+
 
