@@ -1,3 +1,9 @@
+body {
+  background-color: #f2f2f2;
+}
+
+<div>
+
 <h1>Sobre o aplicativo "Controle de Manutenções"</h1>
 
 <ul>
@@ -132,4 +138,5 @@
 <img src="https://raw.githubusercontent.com/felipe-cesar-dev/imagens/refs/heads/main/Controle%20de%20Manuten%C3%A7%C3%B5es/1.jpeg" alt = "Lista de Manutenções" height = "345px"/>
 </div>
 
+</div>
 
