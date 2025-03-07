@@ -120,7 +120,8 @@
 <h5> - Consta o código da função 'MyTabs', importada no (AUTH)/_LAYOUT.JSX, onde o componente 'Tab.Navigator' contém a personalização das duas 'Tab.Screens': 'Inserir Manutenções' ((AUTH)/HOME.JSX) e 'Lista de Manutenções' ((AUTH)/LISTA.JSX).
 
 <h3>/IMAGES
-<h5> - Consta imagens utilizadas como background para as screens da aplicação.
+<h5> - Consta imagens utilizadas como background para as screens da aplicação.</h5>
+</h3>
 
 <div><h3>Imagens das telas da aplicação:</3>
 <img src="https://raw.githubusercontent.com/felipe-cesar-dev/imagens/refs/heads/main/Controle%20de%20Manuten%C3%A7%C3%B5es/5.jpeg" alt = "Acessar Conta" height = "350px"/>
