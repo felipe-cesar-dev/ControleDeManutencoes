@@ -22,37 +22,38 @@
 </ul>
 
 <h1>Rotina de configuração do aplicativo:</h1>
-<h3>npx create-expo-app</h3>
+<ul>
+<li><h3>npx create-expo-app</h3>
 <h5> - Esta linha foi utilizada para criar um aplicativo utilizando o Expo.</h5>
 
-<h3>npm run reset-project</h3>
+<li><h3>npm run reset-project</h3>
 <h5> - Esta linha foi utilizada para remover a aplicação padrão carregada ao utilizar a linha anterior.</h5>
 
-<h3>npm install @clerk/clerk-expo</h3>
+<li><h3>npm install @clerk/clerk-expo</h3>
 <h5> - Esta linha foi utilizada para carregar as dependências do Clerk, utilizado para o sistema de login/logout e sign-up.</h5>
 
-<h3>npm install expo-secure-store</h3>
+<li><h3>npm install expo-secure-store</h3>
 <h5> - Esta linha foi utilizada para instalar a lib responsável por armazenar dados sensíveis, como tokens.</h5>
 
-<h5>npx expo install @react-native-async-storage/async-storage</h5>
+<li><h3>npx expo install @react-native-async-storage/async-storage</h3<li>>
 <h5> - Esta linha foi utilizada para adicionar as dependências referentes ao AsyncStorage.</h5>
 
-<h3>npm install moment --save</h3>
+<li><h3>npm install moment --save</h3>
 <h5> - Esta linha foi utilizada para adicionar a biblioteca responsável pelo tratamento da data a ser capturada pelo input na aplicação.<h5>
 
-<h3>npm install @react-navigation/bottom-tabs</h3>
+<li><h3>npm install @react-navigation/bottom-tabs</h3>
 <h5> - Esta linha foi utilizada para adicionar a funcionalidade de navegação utilizando o Tab.Navigator para as screens home.jsx e lista.jsx.</h5>
 
-<h3>npm install -g eas-cli</h3>
+<li><h3>npm install -g eas-cli</h3>
 <h5> - Esta linha foi utilizada para instalar o eas-cli, reponsável por permitir a criação do .AAB e .APK da aplicação.</h5>
 
-<h3>eas login</h3>
+<li><h3>eas login</h3>
 <h5> - Esta linha foi utilizada para logar na conta Expo.</h5>
 
-<h3>eas build --platform android</h3>
+<li><h3>eas build --platform android</h3>
 <h5> - Esta linha foi utilizada para buildar o .aab da aplicação.</h5>
 
-<h3>eas build -p android --profile preview</h3>
+<li><h3>eas build -p android --profile preview</h3>
 <h5> - Esta linha foi utilizada para buildar o .apk da aplicação.</h5>
 
 <h1>Sobre a modularização do código:</h1>
