@@ -1,6 +1,6 @@
 
 
-<div style="background-color: #f2f2f2; padding: 20px; border: 1px solid #ddd;">
+<div style="background-color:rgb(220, 90, 90); padding: 20px; border: 1px solid #ddd;">
 
 <h1>Sobre o aplicativo "Controle de Manutenções"</h1>
 
